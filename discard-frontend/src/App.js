@@ -11,6 +11,7 @@ import RegisterPage from './authPages/RegisterPage/RegisterPage';
 import Dashboard from './Dashboard/Dashboard';
 
 import './index.css'
+import AlertNotification from './shared/components/AlertNotification';
 function App(){
   return <>
     <Router>
@@ -29,6 +30,7 @@ function App(){
         </Route>
       </Switch>
     </Router>
+    <AlertNotification />
   </>
 }
 
