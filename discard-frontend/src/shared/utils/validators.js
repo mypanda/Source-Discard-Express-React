@@ -20,7 +20,7 @@ const validatePassword = (password) => {
   return password.length > 6 && password.length < 12;
 };
 
-const validateMail = (mail) => {
+export const validateMail = (mail) => {
   const emialPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$/;
   return emialPattern.test(mail);
 };

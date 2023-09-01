@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import AuthBox from "../../shared/components/AuthBox";
 import RegisterPageInputs from "./RegisterPageInputs";
 import RegisterPageFooter from "./RegisterPageFooter";
-import { validateRegisterForm } from "../../utils/validators";
+import { validateRegisterForm } from "../../shared/utils/validators";
 import { connect } from "react-redux";
 import { getActions } from "../../store/actions/authActions";
 import { useHistory } from "react-router-dom";

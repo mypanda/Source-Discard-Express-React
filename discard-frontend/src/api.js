@@ -1,5 +1,5 @@
 import axios from "axios";
-import {logout} from './utils/auth'
+// import {logout} from './shared/utils/auth'
 
 const apiClient = axios.create({
   baseURL: "http://localhost:5002/api",
@@ -44,10 +44,10 @@ export const register = async (data) => {
   }
 };
 
-const checkResponseCode = (exception) => {
-  const responseCode = exception?.response?.status;
+// const checkResponseCode = (exception) => {
+//   const responseCode = exception?.response?.status;
 
-  if (responseCode) {
-    (responseCode === 401 || responseCode === 403) && logout();
-  }
-};
+//   if (responseCode) {
+//     (responseCode === 401 || responseCode === 403) && logout();
+//   }
+// };
