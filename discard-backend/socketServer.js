@@ -1,5 +1,6 @@
 const authSocket = require("./middleware/authSocket");
 const newConnectionHandler = require("./sockerHandlers/newConnectionHandler");
+const disconnectHandler = require("./sockerHandlers/disconnectHandler");
 
 const registerSockerServer = (server) => {
   const io = require("socket.io")(server, {
@@ -11,12 +12,17 @@ const registerSockerServer = (server) => {
 
   io.use((socket, next) => {
     authSocket(socket, next);
+    next()
   });
 
   io.on("connection", (socket) => {
     console.log("user conne", socket.id);
 
     newConnectionHandler(socket, io);
+
+    socket.on('disconnect', () => {
+      disconnectHandler(socket)
+    })
   });
 };
 
