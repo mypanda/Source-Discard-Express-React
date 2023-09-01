@@ -11,5 +11,8 @@ export const connectWithSocketServer = (userDetails) => {
     },
   });
 
-  socket.on("connect", () => {});
+  socket.on("connect", () => {
+    console.log('success')
+    console.log(socket.id)
+  });
 };
