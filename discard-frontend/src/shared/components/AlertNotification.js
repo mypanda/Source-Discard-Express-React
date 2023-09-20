@@ -14,6 +14,7 @@ const AlertNotification = ({
       anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
       open={showAlertMessage}
       onClose={closeAlertMessage}
+      autoHideDuration={6000}
     >
       <Alert severity="info">{alertMessageContent}</Alert>
     </Snackbar>
