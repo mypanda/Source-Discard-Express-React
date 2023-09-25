@@ -1,6 +1,6 @@
 const User = require('../../models/user')
 const FriendInvitation = require('../../models/friendInvitation')
-const friendsUpdate = require('../../sockerHandlers/updates/friends')
+const friendsUpdates = require('../../sockerHandlers/updates/friends')
 
 const postInvite = async (req, res) => {
   const { targetMailAddress } = req.body;
@@ -56,7 +56,7 @@ const postInvite = async (req, res) => {
   // if invitation has been successfully created we would like to update friend invitations if other user is online
 
   // send pending invitations update to specific user
-  friendsUpdate.updateFriendsPendingInvitations(targetUser._id.toString())
+  friendsUpdates.updateFriendsPendingInvitations(targetUser._id.toString())
 
   return res.status(201).send("Invitation has been sent");
 };

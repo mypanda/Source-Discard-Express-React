@@ -15,7 +15,6 @@ const registerSockerServer = (server) => {
   serverStore.setSocketServerInstance(io)
 
   io.use((socket, next) => {
-    console.log('<<<<<<<<')
     authSocket(socket, next);
     next()
   });
