@@ -18,7 +18,7 @@ const FriendsList = () => {
       <FriendsListItem
         username={f.username}
         id={f.id}
-        key={f.key}
+        key={f.id}
         isOnline={f.isOnline}></FriendsListItem>
     ))}
   </MainContainer>

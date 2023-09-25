@@ -2,6 +2,8 @@ const authSocket = require("./middleware/authSocket");
 const newConnectionHandler = require("./sockerHandlers/newConnectionHandler");
 const disconnectHandler = require("./sockerHandlers/disconnectHandler");
 
+const serverStore = require('./serverStore')
+
 const registerSockerServer = (server) => {
   const io = require("socket.io")(server, {
     cors: {
@@ -10,7 +12,10 @@ const registerSockerServer = (server) => {
     },
   });
 
+  serverStore.setSocketServerInstance(io)
+
   io.use((socket, next) => {
+    console.log('<<<<<<<<')
     authSocket(socket, next);
     next()
   });

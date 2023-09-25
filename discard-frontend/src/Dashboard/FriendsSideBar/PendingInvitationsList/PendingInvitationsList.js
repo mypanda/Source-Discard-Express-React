@@ -11,7 +11,7 @@ const DUMMY_INVITATION = [
     }
   },
   {
-    _id: '1',
+    _id: '2',
     senderId: {
       username: 'John',
       mail: 'dummy@ad.com'
