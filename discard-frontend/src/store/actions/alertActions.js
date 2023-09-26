@@ -19,7 +19,7 @@ export const openAlertMessage = (content) => {
 
 export const closeAlertMessage = () => {
   return {
-    type: alertActions.closeAlertMessage,
+    type: alertActions.CLOSE_ALERT_MESSAGE,
   };
 };
 

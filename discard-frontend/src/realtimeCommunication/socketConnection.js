@@ -18,10 +18,11 @@ export const connectWithSocketServer = (userDetails) => {
     console.log(socket.id)
   });
 
-  socket.on('frients-invitaions', (data) => {
+  socket.on('friends-invitations', (data) => {
     const { pendingInvitations } = data
 
     console.log('friends invation event came')
+    console.log(pendingInvitations);
     
     store.dispatch(setPendingFriendsInvitations(pendingInvitations))
   })
