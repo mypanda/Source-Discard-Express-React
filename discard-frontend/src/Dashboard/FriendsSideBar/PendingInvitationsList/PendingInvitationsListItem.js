@@ -3,7 +3,10 @@ import React, { useState } from "react";
 import Avatar from "../../../shared/components/Avatar";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import InvitationDecisionButtons from './InvitationDecisionButtons'
+import InvitationDecisionButtons from "./InvitationDecisionButtons";
+import { connect } from "react-redux";
+import { getActions } from "../../../store/actions/friendsActions";
+
 const PendingInvitationsListItem = ({
   id,
   username,
@@ -14,11 +17,13 @@ const PendingInvitationsListItem = ({
   const [buttonDisabled, setButtonDisabled] = useState(false);
 
   const handlerAcceptInvitation = () => {
+    console.log('xxx')
     acceptFriendInvitation({ id });
     setButtonDisabled(true);
   };
-
+  
   const handleRejectInvitation = () => {
+    console.log('aaa')
     rejectFriendInvitation({ id });
     setButtonDisabled(true);
   };
@@ -48,13 +53,20 @@ const PendingInvitationsListItem = ({
             {username}
           </Typography>
           <InvitationDecisionButtons
-          display={buttonDisabled}
-          acceptFriendInvitation={handlerAcceptInvitation}
-          rejectFriendInvitation={handleRejectInvitation}/>
+            display={buttonDisabled}
+            acceptInvitationHandler={handlerAcceptInvitation}
+            rejectInvitationHandler={handleRejectInvitation}
+          />
         </Box>
       </div>
     </Tooltip>
   );
 };
 
-export default PendingInvitationsListItem;
+const mapActionsToProps = (dispatch) => {
+  return {
+    ...getActions(dispatch),
+  };
+};
+
+export default connect(null, mapActionsToProps)(PendingInvitationsListItem);

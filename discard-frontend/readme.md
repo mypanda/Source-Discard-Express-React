@@ -1,4 +1,2 @@
 https://www.udemy.com/course/video-chat-app-learn-mern-stack-with-webrtc-and-socketio/
-
-https://www.bilibili.com/video/BV1Eh4y1k7rd?p=5&vd_source=0a3e56ecef9eb78abbba627b3d9c626e
-2:17
+https://www.bilibili.com/video/BV1Eh4y1k7rd/?p=6&spm_id_from=pageDriver&vd_source=0a3e56ecef9eb78abbba627b3d9c626e

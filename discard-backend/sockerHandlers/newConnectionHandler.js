@@ -1,12 +1,19 @@
-const serverStore = require('../serverStore')
+const serverStore = require("../serverStore");
+const friendsUpdate = require('../sockerHandlers/updates/friends')
 
 const newConnectionHandler = async (socket, io) => {
-  console.log('socketsocket', socket.userId)
-  const userDetails = socket.user
+  const userDetails = socket.user;
+
   serverStore.addNewConnectedUser({
     socketId: socket.id,
-    userId: userDetails.userId
-  })
-}
+    userId: userDetails.userId,
+  });
 
-module.exports = newConnectionHandler
+  // update pending friends invitations list
+  friendsUpdate.updateFriendsPendingInvitations(userDetails.userId);
+
+  // update friends list
+  friendsUpdate.updateFriends(userDetails.userId)
+};
+
+module.exports = newConnectionHandler;
