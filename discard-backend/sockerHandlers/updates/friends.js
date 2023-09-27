@@ -42,8 +42,6 @@ const updateFriends = async (userId) => {
           mail: f.mail,
           username: f.username,
         }));
-        
-        
   
         // get io server instance
         const io = serverStore.getSocketServerInstance()
