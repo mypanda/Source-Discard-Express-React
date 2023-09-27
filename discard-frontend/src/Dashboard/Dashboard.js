@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { styled } from "@mui/system";
 import SideBar from "./SideBar/SideBar";
 import FriendsSideBar from "./FriendsSideBar/FriendsSideBar";
-import Message from "./Message/Message";
+import Messenger from "./Messenger/Messenger";
 import AppBar from "./AppBar/AppBar";
 import { logout } from "../shared/utils/auth";
 import { connect } from "react-redux";
@@ -30,7 +30,7 @@ const Dashboard = ({ setUserDetails }) => {
     <Wrapper>
       <SideBar></SideBar>
       <FriendsSideBar></FriendsSideBar>
-      <Message></Message>
+      <Messenger></Messenger>
       <AppBar></AppBar>
     </Wrapper>
   );
