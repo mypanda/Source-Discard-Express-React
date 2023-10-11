@@ -36,6 +36,7 @@ const registerSockerServer = (server) => {
     })
 
     socket.on('direct-chat-history', data => {
+      console.log('1', data)
       directChatHistoryHandler(socket, data)
     })
 

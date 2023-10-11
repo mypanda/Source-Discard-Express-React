@@ -7,9 +7,9 @@ const updateChatHistory = async (
 ) => {
   const conversation = await Conversation.findById(conversationId).populate({
     path: "messages",
-    model: "Messages",
+    model: "Message",
     populate: {
-      auth: "author",
+      path: "author",
       model: "User",
       select: "username _id",
     },
@@ -20,10 +20,10 @@ const updateChatHistory = async (
 
     if (toSpecifiedSocketId) {
       // initial update of chat history
-      return io.to(toSpecifiedSocketId).emit('direct-chat-history', {
+      return io.to(toSpecifiedSocketId).emit("direct-chat-history", {
         messages: conversation.messages,
-        participants: conversation.participants
-      })
+        participants: conversation.participants,
+      });
     }
 
     // check if users of this conversion are online
