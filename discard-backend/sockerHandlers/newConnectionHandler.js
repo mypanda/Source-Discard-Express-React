@@ -1,5 +1,6 @@
 const serverStore = require("../serverStore");
-const friendsUpdate = require('../sockerHandlers/updates/friends')
+const friendsUpdate = require("../sockerHandlers/updates/friends");
+const roomsUpdate = require("./updates/rooms");
 
 const newConnectionHandler = async (socket, io) => {
   const userDetails = socket.user;
@@ -13,7 +14,11 @@ const newConnectionHandler = async (socket, io) => {
   friendsUpdate.updateFriendsPendingInvitations(userDetails.userId);
 
   // update friends list
-  friendsUpdate.updateFriends(userDetails.userId)
+  friendsUpdate.updateFriends(userDetails.userId);
+
+  setTimeout(() => {
+    roomsUpdate.updateRooms(socket.id);
+  }, [500]);
 };
 
 module.exports = newConnectionHandler;
